@@ -19,8 +19,8 @@ Clonar el Repositorio
 
 Bash
 
-git clone [URL_DE_TU_REPOSITORIO]
-cd [NOMBRE_DE_LA_CARPETA]
+git clone [https://github.com/belemilla/Electivo-back-end/tree/main/evaluacion_final_backend]
+cd [evaluacion_final_backend]
 Crear y Activar Entorno Virtual
 
 Bash
@@ -53,7 +53,7 @@ Ejecutar el Servidor
 Bash
 
 python manage.py runserver
-El backend estará disponible en http://127.0.0.1:8000/.
+El backend estará disponible en http://127.0.0.1:8000/admin.
 
 Cómo Probar la Aplicación
 Puedes interactuar con el backend a través del panel de administrador, las vistas del CRUD o los endpoints de la API.
