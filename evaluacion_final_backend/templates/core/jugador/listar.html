@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Jugadores</title>
+    <style>
+        body { font-family: sans-serif; }
+        ul { list-style-type: none; padding: 0; }
+        li { display: flex; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #ccc; padding-bottom: 15px; }
+        img { border-radius: 50%; margin-right: 15px; object-fit: cover; }
+        .actions a { margin-left: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Lista de Jugadores ⚽</h1>
+    <a href="{% url 'crear_jugador' %}">Crear Nuevo Jugador</a>
+    <hr>
+    
+    <ul>
+      {% for jugador in jugadores %}
+        <li>
+          {% if jugador.foto %}
+            <img src="{{ jugador.foto.url }}" alt="Foto de {{ jugador.nombre }}" width="60" height="60">
+          {% else %}
+            <div style="width:60px; height:60px; background-color:#eee; border-radius:50%; margin-right:15px;"></div>
+          {% endif %}
+          
+          <div>
+            <strong>{{ jugador.nombre }}</strong> ({{ jugador.posicion }})
+          </div>
+
+          <div class="actions" style="margin-left: auto;">
+            <a href="{% url 'detalle_jugador' pk=jugador.pk %}">Ver Detalles</a>
+            <a href="{% url 'editar_jugador' pk=jugador.pk %}">Editar</a>
+            <a href="{% url 'eliminar_jugador' pk=jugador.pk %}" style="color: red;">Eliminar</a>
+          </div>
+        </li>
+      {% empty %}
+        <li>No hay jugadores registrados todavía.</li>
+      {% endfor %}
+    </ul>
+</body>
+</html>

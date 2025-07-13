@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de {{ jugador.nombre }}</title>
+    <style>
+        body { font-family: sans-serif; }
+        img { border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Detalle de {{ jugador.nombre }}</h1>
+    
+    {% if jugador.foto %}
+        <img src="{{ jugador.foto.url }}" alt="Foto de {{ jugador.nombre }}" width="150">
+    {% endif %}
+
+    <h2>Información</h2>
+    <ul>
+        <li><strong>Nombre:</strong> {{ jugador.nombre }}</li>
+        <li><strong>Edad:</strong> {{ jugador.edad }}</li> [cite: 44]
+        <li><strong>Posición:</strong> {{ jugador.posicion }}</li> [cite: 45]
+        <li><strong>País:</strong> {{ jugador.pais.nombre }}</li> [cite: 46]
+        <li><strong>Equipo:</strong> {{ jugador.equipo.nombre }}</li> [cite: 47]
+    </ul>
+
+    <a href="{% url 'listar_jugadores' %}">Volver a la lista de jugadores</a>
+</body>
+</html>
